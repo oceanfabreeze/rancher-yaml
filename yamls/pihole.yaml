@@ -1,0 +1,268 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+    field.cattle.io/creatorId: user-h4rcj
+    field.cattle.io/publicEndpoints: '[{"nodeName":"c-kjw4f:m-609a5fb349c9","addresses":["192.168.1.201"],"port":53,"protocol":"TCP","podName":"default:pihole-56f94485d9-d7rns","allNodes":false},{"nodeName":"c-kjw4f:m-609a5fb349c9","addresses":["192.168.1.201"],"port":53,"protocol":"UDP","podName":"default:pihole-56f94485d9-d7rns","allNodes":false},{"nodeName":"c-kjw4f:m-609a5fb349c9","addresses":["192.168.1.201"],"port":83,"protocol":"TCP","podName":"default:pihole-56f94485d9-d7rns","allNodes":false}]'
+  creationTimestamp: "2021-10-09T06:05:26Z"
+  generation: 5
+  labels:
+    cattle.io/creator: norman
+    workload.user.cattle.io/workloadselector: deployment-default-pihole
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:field.cattle.io/creatorId: {}
+          f:field.cattle.io/publicEndpoints: {}
+        f:labels:
+          .: {}
+          f:cattle.io/creator: {}
+          f:workload.user.cattle.io/workloadselector: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector: {}
+        f:strategy:
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:annotations:
+              .: {}
+              f:cattle.io/timestamp: {}
+              f:field.cattle.io/ports: {}
+            f:labels:
+              .: {}
+              f:workload.user.cattle.io/workloadselector: {}
+          f:spec:
+            f:containers:
+              k:{"name":"pihole"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"DNS1"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DNS2"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"ServerIP"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"TZ"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"WEBPASSWORD"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":53,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:hostPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                  k:{"containerPort":53,"protocol":"UDP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:hostPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                  k:{"containerPort":80,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:hostPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                f:resources: {}
+                f:securityContext:
+                  .: {}
+                  f:allowPrivilegeEscalation: {}
+                  f:capabilities: {}
+                  f:privileged: {}
+                  f:readOnlyRootFilesystem: {}
+                  f:runAsNonRoot: {}
+                f:stdin: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:tty: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/etc/dnsmasq.d/"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/etc/pihole"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"pihole-dnsmasq"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"pihole-etc"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+    manager: rancher
+    operation: Update
+    time: "2021-10-09T06:05:30Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-10-09T06:08:25Z"
+  name: pihole
+  namespace: default
+  resourceVersion: "39494"
+  uid: 158379f7-0fc1-4710-8c5f-b11c34f9ef8c
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-default-pihole
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2021-10-09T06:08:04Z"
+        field.cattle.io/ports: '[[{"containerPort":53,"dnsName":"pihole-hostport","hostPort":53,"kind":"HostPort","name":"dns-tcp","protocol":"TCP","sourcePort":53},{"containerPort":53,"dnsName":"pihole-hostport","hostPort":53,"kind":"HostPort","name":"dns-udp","protocol":"UDP","sourcePort":53},{"containerPort":80,"dnsName":"pihole-hostport","hostPort":83,"kind":"HostPort","name":"pihole-http","protocol":"TCP","sourcePort":83}]]'
+      creationTimestamp: null
+      labels:
+        workload.user.cattle.io/workloadselector: deployment-default-pihole
+    spec:
+      containers:
+      - env:
+        - name: DNS1
+          value: 8.8.8.8
+        - name: DNS2
+          value: 8.8.4.4
+        - name: ServerIP
+          value: 192.168.1.201
+        - name: TZ
+          value: America/Chicago
+        - name: WEBPASSWORD
+          value: T@FfyBlocker
+        image: pihole/pihole:latest
+        imagePullPolicy: Always
+        name: pihole
+        ports:
+        - containerPort: 53
+          hostPort: 53
+          name: dns-tcp
+          protocol: TCP
+        - containerPort: 53
+          hostPort: 53
+          name: dns-udp
+          protocol: UDP
+        - containerPort: 80
+          hostPort: 83
+          name: pihole-http
+          protocol: TCP
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: true
+          capabilities: {}
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: false
+        stdin: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        tty: true
+        volumeMounts:
+        - mountPath: /etc/pihole
+          name: pihole-etc
+        - mountPath: /etc/dnsmasq.d/
+          name: pihole-dnsmasq
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - hostPath:
+          path: /home/pihole/etc-pihole
+          type: ""
+        name: pihole-etc
+      - hostPath:
+          path: /home/pihole/etc-dnsmasq.d/
+          type: ""
+        name: pihole-dnsmasq
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2021-10-09T06:08:25Z"
+    lastUpdateTime: "2021-10-09T06:08:25Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2021-10-09T06:05:26Z"
+    lastUpdateTime: "2021-10-09T06:08:25Z"
+    message: ReplicaSet "pihole-56f94485d9" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 5
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
